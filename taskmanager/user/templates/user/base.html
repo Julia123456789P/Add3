@@ -20,18 +20,27 @@
         <a href="{% url 'create' %}">Оставить отзыв</a>
         {% endif %}
         </span>
-        <span class="navbar-text">
-            {% if request.user.is_authenticated %}
-            Добро пожаловать, {{ user.username }} | <a href="{% url 'logout' %}">Выход</a>
-            {% else %}
-            <a href="{% url 'register' %}">Регистрация</a> | <a href="{% url 'login' %}">Вход</a>
-            {% endif %}
-        </span>
         <a class="py-2 d-none d-md-inline-block" href="{% url 'about' %}">Контакты</a>
+        <a class="py-2 d-none d-md-inline-block" href="{% url 'register' %}">Регистрация</a>
+        <a class="py-2 d-none d-md-inline-block" href="{% url 'login' %}">Логин</a>
+
     </nav>
 </header>
 <div class="container">
-    {% block content %}{% endblock %}
+    {% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'error' %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+    {% else %}
+        <div class="alert alert-{{ message.tags }}" role="alert">
+            {{ message }}
+        </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% block content %}Регистрация{% endblock %}
 </div>
 </body>
 </html>

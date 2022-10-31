@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'shop',
-    'cart'
-    #'users',
+    'user',
+    'cart',
     #'rest_framework', #TODO подключение приложений
 ]
 

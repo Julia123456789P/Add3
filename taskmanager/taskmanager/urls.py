@@ -6,8 +6,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cart/', include('cart.urls', namespace='cart')),
+    path('user/', include('user.urls')),
+    #path('users/', include('users.urls')),
     path('main/', include('main.urls')),
-    #path('user/', include('users.urls')),
     path('', include('shop.urls', namespace='shop')),
 ] #TODO ссылки на все приложения
 
