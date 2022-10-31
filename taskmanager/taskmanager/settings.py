@@ -43,8 +43,7 @@ INSTALLED_APPS = [
     'main',
     'shop',
     'user',
-    'cart',
-    #'rest_framework', #TODO подключение приложений
+    'cart',  #TODO подключение приложений
 ]
 
 MIDDLEWARE = [
@@ -132,4 +131,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-#AUTH_USER_MODEL = 'users.User'  #TODO register user
+#AUTH_USER_MODEL = 'users.User'  #TODO
