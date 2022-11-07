@@ -1,0 +1,36 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block title %}
+Заказ
+{% endblock %}
+
+{% block content %}
+<table class="cart">
+        {% if request.user.is_authenticated %}
+<div class="text-right">
+    <h1>Оформление заказа</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Отправить заказ">
+        {% endif %}
+        {% for item in cart %}
+        {% with product=item.product %}
+            <td>{{ product.name }}</td>
+                <form method="post">
+                    {{ item.update_quantity_form.quantity }}
+                    {{ item.update_quantity_form.update }}
+                    {% csrf_token %}
+                </form>
+                <td>
+                    {{ item.quantity }}
+                </td>
+                <td class="num">${{ item.price }}</td>
+                <td class="num">${{ item.total_price }}</td>
+        {% endwith %}
+        {% endfor %}
+</form>
+</div>
+</table>
+{% endblock %}

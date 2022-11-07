@@ -1,17 +1,22 @@
-{% extends 'main/base.html' %}
-
+{% extends "shop/base.html" %}
+{% load static %}
 
 {% block title %}
 Отзыв
 {% endblock %}
 
 {% block content %}
+<table class="cart">
+    {% if request.user.is_authenticated %}
     <h1>Оставить отзыв</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.title }}
-        {{ form.task }}<br>
-        <button type="submit"class="btn btn-success">Добавить</button>
+        {{ form.as_p }}
+        <input type="submit" value="Добавить">
         <span>{{ error }}</span>
+        {% else %}
+        <h3>Чтобы оставить отзыв нужно авторизоваться</h3>
+        {% endif %}
     </form>
+</table>
 {% endblock %}
