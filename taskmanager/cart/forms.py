@@ -21,4 +21,4 @@ class ContactForm(forms.Form):
     address = forms.CharField(label='Адрес доставки', widget=forms.TextInput(attrs={'class': 'form-control'}))
     phone = forms.IntegerField(label='Номер телефона с кодом', widget=forms.TextInput(attrs={'class': 'form-control'}))
     coment = forms.CharField(label='Комментарий к заказу', widget=forms.TextInput(attrs={'class': 'form-control'}), required=False)
-    tovar = CartAddProductForm()
+
